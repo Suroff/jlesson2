@@ -20,29 +20,33 @@ public class ArrayPull {
 
 
 //Метод заполнения массива
-    public static void GetArr(String[][] Arr, int i, int j){
+    public static String[][] GetArr(int i, int j){
+        String MArr[][];
+        MArr = new String[i][j];
         Scanner Scn = new Scanner(System.in);
-        if (i < 4 || i > 4 || j < 4 || j > 4) throw new MySizeArrayException("Размер массива превышен");
         for (int h = 0; h < i; h++){
             for (int w = 0; w < j; w++){
                 System.out.println("Введите элемент массива");
-                Arr[h][w] = Scn.nextLine();
+                MArr[h][w] = Scn.nextLine();
             }
         }
 
         System.out.println("Массив создан");
         System.out.println("**************");
 
-        for (String[] row : Arr){
+        for (String[] row : MArr){
             printRow(row);
         }
+        return MArr;
     }
 
     //Метод для суммирования элементов
-    public static void SummArr(String[][] StArr) {
+    public static void SummArr() {
         int Summ = 0;
         String Ych = "";
-
+        String StArr[][];
+        StArr = GetArr(4,4);
+        if (StArr.length !=4) throw new MySizeArrayException ("Неверный размер массива");
         try {
 
             for (int h = 0; h < StArr.length; h++){
@@ -61,10 +65,10 @@ public class ArrayPull {
     //Главный метод
 
     public static void main(String[] args){
-        String MyStrArray[][];
-        MyStrArray = new String[4][4];
-        GetArr(MyStrArray,4,4);
-        SummArr(MyStrArray);
+//        String MyStrArray[][];
+
+//        GetArr(MyStrArray,4,4);
+        SummArr();
 
     }
 }
