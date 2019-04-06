@@ -45,8 +45,12 @@ public class ArrayPull {
         int Summ = 0;
         String Ych = "";
         String StArr[][];
-        StArr = GetArr(4,4);
-        if (StArr.length !=4) throw new MySizeArrayException ("Неверный размер массива");
+        StArr = GetArr(2,2);
+        int Hei = StArr[0].length;
+        int Wid = StArr.length;
+        if (Hei*Wid != 16) {
+            throw new MySizeArrayException ("Неверный размер массива");
+        }
         try {
 
             for (int h = 0; h < StArr.length; h++){
@@ -65,9 +69,7 @@ public class ArrayPull {
     //Главный метод
 
     public static void main(String[] args){
-//        String MyStrArray[][];
 
-//        GetArr(MyStrArray,4,4);
         SummArr();
 
     }
